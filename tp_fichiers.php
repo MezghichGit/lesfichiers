@@ -9,7 +9,8 @@ if ($id==false) {
     die("Erreur lors douverture de fichier");
 } else {
     flock($id, LOCK_EX);
-    fwrite($id, "[$date] Une nouvelle inscription : $nom - $email"."\n");
+    //fwrite($id, "[$date] Une nouvelle inscription : $nom - $email"."\n");
+    fwrite($id, "$date;$nom;$email"."\n");
     flock($id, LOCK_UN);
 
     $r=fclose($id);
